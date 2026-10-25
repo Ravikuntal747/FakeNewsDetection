@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection System | HCL Project</title>
+    <!-- Favicon link -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2226%22>📰</text></svg>">
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="app-container">
+
+        <!-- Top Navigation / Header -->
+        <header class="app-header">
+            <div class="header-badge">HCL College Project &bull; Machine Learning & NLP</div>
+            <h1 class="header-title">Fake News Detection System</h1>
+            <p class="header-subtitle">
+                An intelligent system powered by <strong>TF-IDF Vectorization</strong> and 
+                <strong>Logistic Regression</strong> to classify news authenticity in real-time.
+            </p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="main-content">
+
+            <!-- Card 1: Input & Controls -->
+            <section class="card input-card">
+                <div class="card-header">
+                    <h2>Verify News Authenticity</h2>
+                    <span class="badge-info">Model Accuracy: 92.66%</span>
+                </div>
+
+                <!-- Sample Demonstration Buttons for College Viva/Demo -->
+                <div class="sample-actions">
+                    <span class="sample-label">Quick Test Samples:</span>
+                    <button type="button" class="btn-sample" id="sampleRealBtn" title="Load real news sample">
+                        🟢 Real News Sample
+                    </button>
+                    <button type="button" class="btn-sample" id="sampleFakeBtn" title="Load fake news sample">
+                        🔴 Fake News Sample
+                    </button>
+                    <button type="button" class="btn-sample btn-clear" id="clearBtn" title="Clear text area">
+                        🧹 Clear
+                    </button>
+                </div>
+
+                <!-- Textarea for News Input -->
+                <div class="form-group">
+                    <label for="newsInput" class="form-label">
+                        Enter News Headline or Article Content:
+                    </label>
+                    <textarea 
+                        id="newsInput" 
+                        class="news-textarea" 
+                        rows="7" 
+                        placeholder="Paste an article body or headline here to evaluate its credibility... (minimum 10 characters)"
+                        spellcheck="true"
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="charCount">0 characters</span>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="action-row">
+                    <button type="button" id="analyzeBtn" class="btn-primary">
+                        <span class="btn-icon">🔍</span>
+                        <span class="btn-text">Analyze News</span>
+                    </button>
+                </div>
+
+                <!-- Error Notification Box (Hidden by default) -->
+                <div id="errorBox" class="alert-box alert-error" style="display: none;">
+                    <span class="alert-icon">⚠️</span>
+                    <span id="errorMessage" class="alert-text">Error message goes here.</span>
+                </div>
+            </section>
+
+            <!-- Card 2: Live Analysis & Results (Hidden until analyzed) -->
+            <section id="resultsCard" class="card result-card" style="display: none;">
+                <div class="card-header">
+                    <h2>Prediction Result</h2>
+                    <span id="timestamp" class="timestamp">Just now</span>
+                </div>
+
+                <!-- Verdict Banner (Green for REAL, Red for FAKE) -->
+                <div id="verdictBanner" class="verdict-banner">
+                    <div class="verdict-icon" id="verdictIcon">✅</div>
+                    <div class="verdict-text-group">
+                        <div class="verdict-subtitle">Calculated Verdict</div>
+                        <div id="verdictTitle" class="verdict-title">REAL NEWS</div>
+                    </div>
+                    <div class="confidence-badge">
+                        <span class="confidence-label">Confidence</span>
+                        <span id="confidenceValue" class="confidence-score">94.5%</span>
+                    </div>
+                </div>
+
+                <!-- Probability Distribution Meter -->
+                <div class="metrics-section">
+                    <h3>Probability Distribution</h3>
+                    
+                    <!-- Progress Bar -->
+                    <div class="meter-bar-container">
+                        <div id="meterReal" class="meter-segment meter-real" style="width: 50%;"></div>
+                        <div id="meterFake" class="meter-segment meter-fake" style="width: 50%;"></div>
+                    </div>
+
+                    <!-- Metric Breakdown Cards -->
+                    <div class="prob-grid">
+                        <div class="prob-card prob-real-card">
+                            <span class="prob-tag">Real Probability</span>
+                            <span id="realProbScore" class="prob-number">50.0%</span>
+                        </div>
+                        <div class="prob-card prob-fake-card">
+                            <span class="prob-tag">Fake Probability</span>
+                            <span id="fakeProbScore" class="prob-number">50.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Summary Snippet -->
+                <div class="analyzed-snippet">
+                    <strong>Analyzed Text:</strong>
+                    <p id="snippetText" class="snippet-content">"..."</p>
+                </div>
+            </section>
+
+            <!-- Card 3: Project Architecture Details (Viva Ready) -->
+            <section class="card info-card">
+                <h3>About This College Project</h3>
+                <div class="tech-pills">
+                    <span class="pill">Python 3</span>
+                    <span class="pill">Flask REST API</span>
+                    <span class="pill">Scikit-Learn</span>
+                    <span class="pill">TF-IDF N-grams</span>
+                    <span class="pill">Logistic Regression</span>
+                    <span class="pill">6,335 Labelled Dataset</span>
+                </div>
+                <p class="info-description">
+                    The model extracts up to 50,000 bi-gram linguistic features from a dataset of 6,335 
+                    manually verified articles. Predictions are determined via probability estimation 
+                    without any hardcoded logic.
+                </p>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Fake News Detection System &bull; HCL Final College Project</p>
+        </footer>
+
+    </div>
+
+    <!-- Link to external JavaScript logic -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

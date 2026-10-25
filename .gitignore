@@ -1,0 +1,37 @@
+# ==============================================================================
+# Git Ignore Configuration for Fake News Detection System
+# ==============================================================================
+
+# 1. Byte-compiled / optimized Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# 2. Virtual environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# 3. Environment & Secret configuration files
+.env
+.env.*
+*.secret
+
+# 4. Operating System temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 5. IDE / Editor configuration folders
+.vscode/
+.idea/
+
+# 6. Ensure trained Machine Learning assets are explicitly tracked (NEVER IGNORED)
+!model/
+!model/fake_news_model.pkl
+!model/tfidf_vectorizer.pkl
+!model/train_model.py

@@ -1,0 +1,514 @@
+/* ==========================================================================
+   Fake News Detection System - Style Sheet (style.css)
+   Clean, modern, responsive UI designed for college project demonstration.
+   ========================================================================== */
+
+/* 1. Global Reset & Variables */
+:root {
+    --bg-primary: #f1f5f9;
+    --bg-card: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    
+    /* Brand & Accent Colors */
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --accent-light: #e0e7ff;
+    
+    /* Status Colors */
+    --real-color: #059669;
+    --real-bg: #ecfdf5;
+    --real-border: #a7f3d0;
+    
+    --fake-color: #dc2626;
+    --fake-bg: #fef2f2;
+    --fake-border: #fecaca;
+    
+    /* Layout Variables */
+    --border-radius: 14px;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    --transition: all 0.25s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 2. Container Layout */
+.app-container {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 3. Header Styling */
+.app-header {
+    text-align: center;
+    padding: 12px 16px;
+}
+
+.header-badge {
+    display: inline-block;
+    background-color: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 12px;
+}
+
+.header-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.header-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* 4. Cards */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.badge-info {
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+/* 5. Quick Test Sample Buttons */
+.sample-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.sample-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.btn-sample {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-sample:hover {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+}
+
+.btn-clear {
+    margin-left: auto;
+    color: #64748b;
+}
+
+/* 6. Textarea Input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.news-textarea {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    resize: vertical;
+    transition: var(--transition);
+    line-height: 1.6;
+}
+
+.news-textarea:focus {
+    background-color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* 7. Action Button & Spinner */
+.action-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 8. Alert / Error Box */
+.alert-box {
+    margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.alert-error {
+    background-color: var(--fake-bg);
+    border: 1px solid var(--fake-border);
+    color: var(--fake-color);
+}
+
+/* 9. Results Section */
+.result-card {
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.verdict-banner {
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    transition: var(--transition);
+}
+
+.verdict-banner.real-news {
+    background-color: var(--real-bg);
+    border: 1.5px solid var(--real-border);
+    color: var(--real-color);
+}
+
+.verdict-banner.fake-news {
+    background-color: var(--fake-bg);
+    border: 1.5px solid var(--fake-border);
+    color: var(--fake-color);
+}
+
+.verdict-icon {
+    font-size: 2.75rem;
+    line-height: 1;
+}
+
+.verdict-text-group {
+    flex-grow: 1;
+}
+
+.verdict-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+}
+
+.verdict-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+}
+
+.confidence-badge {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.confidence-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.confidence-score {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+/* 10. Probability Meter */
+.metrics-section {
+    margin-bottom: 20px;
+}
+
+.metrics-section h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.meter-bar-container {
+    height: 12px;
+    width: 100%;
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.meter-segment {
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meter-real {
+    background-color: var(--real-color);
+}
+
+.meter-fake {
+    background-color: var(--fake-color);
+}
+
+.prob-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.prob-card {
+    padding: 14px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prob-real-card {
+    background-color: var(--real-bg);
+    border: 1px solid var(--real-border);
+    color: var(--real-color);
+}
+
+.prob-fake-card {
+    background-color: var(--fake-bg);
+    border: 1px solid var(--fake-border);
+    color: var(--fake-color);
+}
+
+.prob-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.prob-number {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+/* 11. Analyzed Snippet */
+.analyzed-snippet {
+    background-color: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.snippet-content {
+    margin-top: 4px;
+    font-style: italic;
+    word-break: break-word;
+}
+
+/* 12. Info Card */
+.info-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.pill {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.info-description {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+/* 13. Footer */
+.app-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 12px 0 24px;
+}
+
+/* 14. Mobile Responsiveness */
+@media (max-width: 640px) {
+    .header-title {
+        font-size: 1.75rem;
+    }
+    
+    .card {
+        padding: 20px 16px;
+    }
+
+    .verdict-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .confidence-badge {
+        text-align: center;
+    }
+
+    .prob-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-row {
+        width: 100%;
+    }
+
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-clear {
+        margin-left: 0;
+    }
+}
